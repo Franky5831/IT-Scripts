@@ -11,11 +11,11 @@
 # 3. It restarts apache to apply the changes.
 #
 # Usage:
-# sh ./apache-instanciate.sh <project-name>
+# sh ./apache-instantiate.sh <project-name>
 #
 # Example:
-# sh ./apache-instanciate.sh my-project.com
-# sh ./apache-instanciate.sh github.com
+# sh ./apache-instantiate.sh my-project.com
+# sh ./apache-instantiate.sh github.com
 
 set -eu
 

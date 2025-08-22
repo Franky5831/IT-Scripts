@@ -1,4 +1,4 @@
-# apache-instanciate.sh
+# apache-instantiate.sh
 
 A bash script to quickly set up a new Apache virtual host and project directory on Debian-based systems (like Ubuntu).
 
@@ -18,11 +18,11 @@ Run the script with sudo and provide a project name. The name should be in a dom
 
 
 ```bash
-sudo ./apache-instanciate.sh <project-name>
+sudo ./apache-instantiate.sh <project-name>
 ```
 Example:
 ```bash
-sudo ./apache-instanciate.sh my-cool-site.dev
+sudo ./apache-instantiate.sh my-cool-site.dev
 ```
 
 Example Output:
