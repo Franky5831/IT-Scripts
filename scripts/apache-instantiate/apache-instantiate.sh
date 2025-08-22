@@ -20,6 +20,22 @@
 set -eu
 
 # --- helpers ---------------------------------------------------------------
+show_help() {
+  cat <<'EOF'
+apache-instanciate.sh — manage multiple Apache instances on one host
+
+USAGE:
+  apache-instanciate.sh [project-name]
+
+EXAMPLES:
+  sudo ./apache-instanciate.sh example-site
+  sudo ./apache-instanciate.sh example-site.com
+  sudo ./apache-instanciate.sh test.com
+
+Notes:
+- You probably need to run this script as sudo
+EOF
+}
 
 require_root() {
   if [ "$(id -u)" -ne 0 ]; then
@@ -69,6 +85,16 @@ reload_apache() {
 }
 
 # --- main ------------------------------------------------------------------
+
+# Print help and exit early if -h/--help is anywhere in the args.
+for _arg in "$@"; do
+  case "$_arg" in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+  esac
+done
 
 require_root
 
