@@ -16,9 +16,27 @@ cd IT-Scripts
 ---
 
 ## Scripts catalog
-| Title | Read More | Short description |
-|-|-|-|
-| **apache&#8209;instantiate** | [/scripts/&#8288;apache&#8209;instantiate](./scripts/apache-instantiate/) | Quickly creates and enables an Apache vhost on the next free port, scaffolds a docroot and index page, and reloads Apache. |
+<table>
+	<tbody>
+		<tr>
+			<td>Title</td>
+			<td>Read More</td>
+			<td>Short description</td>
+		</tr>
+		<tr>
+			<td valign="top"><strong>apache&#8209;instantiate</strong></td>
+			<td valign="top"><a href="./scripts/apache-instantiate/">/scripts/&#8288;apache&#8209;instantiate</a></td>
+			<td valign="top">Quickly creates and enables an Apache vhost on the next free port, scaffolds a docroot and index page, and reloads Apache.</td>
+		</tr>
+		<tr>
+			<td valign="top"><strong>MacOS&#8209;SMB&#8209;AutoMount</strong></td>
+			<td valign="top"><a href="./scripts/apache-instantiate/">/scripts/&#8288;mac&#8209;smb&#8209;automount</a></td>
+			<td valign="top">Automatically mounts your SMB drives on your Mac.</td>
+		</tr>
+	</tbody>
+</table>
+
+
 > More scripts are on the way - feel free to propose one via an issue or PR.
 
 ---
