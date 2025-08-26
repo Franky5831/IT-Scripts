@@ -15,7 +15,7 @@ WORKDIR /app
 COPY scripts/ .
 
 # Make all shell scripts in the working directory executable
-RUN chmod +x *.sh
+RUN chmod +x ./*.sh 2>/dev/null || true
 
 # Set the default command to open an interactive bash shell
 # This allows you to manually run any of your scripts for testing.
