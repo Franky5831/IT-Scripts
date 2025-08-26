@@ -11,6 +11,18 @@
 # The script requires no parameters
 # The configuration for the 
 #
+
+# --- helpers ---------------------------------------------------------------
+
+get_public_ip() {
+  # Keep it fast & quiet; fall back to empty on failure
+  curl -sS --max-time 2 https://ifconfig.me || true
+}
+
+is_share_mounted() {
+  mount | grep -q "/Volumes/${SMB_SHARE}"
+}
+
 # --- config ---------------------------------------------------------------
 
 PUBLIC_IP=$(curl ipinfo.io/ip) # Gets public IP
@@ -25,14 +37,14 @@ SMB_PORT="THE-NAS-PORT-GOES-HERE" # The default port for smb is 445
 USERNAME=$(security find-internet-password -s "${SMB_INTERNAL_IP}" -g 2>&1 | grep -E 'acct' |  sed 's/^ *//' | sort | rev  | cut -d'"' -f2 | rev)
 PASSWORD=$(security find-internet-password -s "${SMB_INTERNAL_IP}" -g 2>&1 | grep -E 'password' |  sed 's/^ *//' | sort | rev  | cut -d'"' -f2 | rev )
 
-# --- helpers ---------------------------------------------------------------
-
-
-
-
 # --- main ------------------------------------------------------------------
 
 umount /Volumes/${SMB_SHARE} # Unmounts drive to then mount it again
 if [ "$PUBLIC_IP" == "$EXPOSED_IP" ]; then # Checks if the current ip of the network matches the exposed ip, if not it can not mount the smb drive
-	open smb://${USERNAME}:${PASSWORD}@${SMB_INTERNAL_IP}:${SMB_PORT}/${SMB_SHARE} # Mounts drive from private network
+
+	MOUNT_POINT="/Volumes/$SMB_SHARE"
+  if [ ! -d "$MOUNT_POINT" ]; then # Checks if the mounting point exists, if not it creats it
+    mkdir -p $MOUNT_POINT
+  fi
+  mount_smbfs "//$USERNAME:$PASSWORD@$SMB_INTERNAL_IP/$SMB_SHARE" $MOUNT_POINT
 fi

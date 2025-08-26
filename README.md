@@ -30,12 +30,11 @@ cd IT-Scripts
 		</tr>
 		<tr>
 			<td valign="top"><strong>MacOS&#8209;SMB&#8209;AutoMount</strong></td>
-			<td valign="top"><a href="./scripts/apache-instantiate/">/scripts/&#8288;mac&#8209;smb&#8209;automount</a></td>
+			<td valign="top"><a href="./scripts/mac-smb-automount/">/scripts/&#8288;mac&#8209;smb&#8209;automount</a></td>
 			<td valign="top">Automatically mounts your SMB drives on your Mac.</td>
 		</tr>
 	</tbody>
 </table>
-
 
 > More scripts are on the way - feel free to propose one via an issue or PR.
 
