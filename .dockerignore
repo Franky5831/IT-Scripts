@@ -1,0 +1,6 @@
+# Git
+.git/
+
+# OS
+.DS_Store
+Thumbs.db
