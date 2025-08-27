@@ -12,7 +12,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copy the contents of the local "scripts" directory into the container's working directory
-COPY scripts/ .
+COPY . .
 
 # Make all shell scripts in the working directory executable
 RUN chmod +x ./*.sh 2>/dev/null || true
