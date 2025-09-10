@@ -24,12 +24,13 @@ is_share_mounted() {
 }
 
 # --- config ---------------------------------------------------------------
+source ../../libraries/config.sh;
+echo "$(config_get othervar)";
 
 PUBLIC_IP=$(curl ipinfo.io/ip) # Gets public IP
 EXPOSED_IP="YOUR-PUBLIC-IP-GOES-HERE"
 SMB_INTERNAL_IP="THE-INTERNAL-IP-FOR-THE-NAS-GOES-HERE"
 SMB_SHARE="YOUR-SMB-DIRECTORY-GOES-HERE"
-SMB_PORT="THE-NAS-PORT-GOES-HERE" # The default port for smb is 445
 
 # Get username and password from keychain, both have the same user and password
 # If you ever logged in MacOs has already asked you if you want to save your password in the keychain

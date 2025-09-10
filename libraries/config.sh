@@ -15,9 +15,10 @@ config_read_file() {
 # Function to read config files
 # This function has been copied from the following stackexchange thread: https://unix.stackexchange.com/a/331965
 config_get() {
-  val="$(config_read_file config.cfg "${1}")";
+  # This function requires there to be a config/config.cfg file in the same directory as the one where the script that is calling the function is located
+  val="$(config_read_file config/config.cfg "${1}")";
   if [ "${val}" = "__UNDEFINED__" ]; then
-      val="$(config_read_file config.cfg.defaults "${1}")";
+      val="$(config_read_file config/config.cfg.defaults "${1}")";
   fi
   printf -- "%s" "${val}";
 }
